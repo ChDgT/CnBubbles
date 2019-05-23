@@ -1,3 +1,3 @@
-  class Comic < ApplicationRecord
+class Comic < ApplicationRecord
   belongs_to :user
 end
