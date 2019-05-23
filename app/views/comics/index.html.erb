@@ -1,12 +1,24 @@
 <div class="container">
-  <h1>List of Comics</h1>
-  <%= link_to "Add a new comic", new_comic_path %>
-  <ul>
-    <% @comics.each  do |comic| %>
-      <li>
-        <h3><%= comic.title %></h3>
-        <h5><%= comic.category %></h5>
-      </li>
-    <% end %>
-  </ul>
+  <div class="row d-flex justify-content-center">
+      <%= link_to "Add a new comic", new_comic_path,class: "left btn btn-primary" %>
+    <h1 class="text-center">List of Comics</h1>
+    </div>
+  <div class="row d-flex justify-content-center" >
+      <% @comics.each  do |comic| %>
+          <div class="col-lg-4 col-xs-12 col-md-6 col-sm-12" style="margin-bottom:10px;">
+          <article style="background-image: url(https://cdn.radiofrance.fr/s3/cruiser-production/2017/12/0c7a1205-f978-4dc8-af33-18364600a05b/640_gettyimages-671080678-1.jpg) ;background-size: 380px 220px ; background-repeat:no-repeat; border:1px solid red;-moz-border-radius:20px; -webkit-border-radius:20px;" >
+              <div class="overlay2">
+                <h2> <%= comic.title %></h2>
+                <div class="separer2"></div>
+                <H3><%= comic.category %> </small></h3>
+                <p><small> <%= comic.publication_date %> </small></p>
+                <a href="pages-articles/article-1-gaspillage.php" class="button-2">Read</a>
+              </div>
+            </article>
+          </div>
+          <% end %>
+        </div>
+    </div>
 </div>
+
+

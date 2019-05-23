@@ -1,0 +1,49 @@
+  .overlay2 {
+    background: rgba(255,255,255,0.65);
+    height: 210px;
+    width: 202px;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+  font-size: 19px;
+}
+
+.button-2 {
+    color:#fff;
+    background-color: rgba(38 , 196 , 236, 0.8);
+    padding: 6px 10px;
+    border-radius: 3px;
+  font-size: 19px;
+  border:1px solid white;
+}
+.button-2:hover
+{
+    color:#fff;
+    background-color: rgb(150 , 196 , 236);
+  font-size: 22px;
+  text-decoration:none;
+     font-weight:bold;
+}
+.separer2
+{
+  width: 100px;
+  height: 2px;
+  background-color:red!important;
+  margin:0 auto;
+}
+
+ article {
+    width: 320px;
+    height: 210px;
+    float: left;
+    border-radius: 10px;
+  background-size: 120%;
+  margin-bottom: 20px;
+  background-size: cover;
+}
+.left {
+  position:absolute;
+  right:30px;
+  top:70px
+}
+
