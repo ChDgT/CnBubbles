@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>List of Comics</h1>
+  <ul>
+    <% @comics.each  do |comic| %>
+      <li>
+        <h3><%= comic.title %></h3>
+        <h5><%= comic.category %></h5>
+      </li>
+    <% end %>
+  </ul>
+</div>
