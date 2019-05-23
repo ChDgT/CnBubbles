@@ -1,0 +1,27 @@
+Case 1 : Owner_Create a comic
+1_Land to home_page
+2_Sign in/up
+3_Land to your own index
+4_Create a new comic
+
+Case 2 : Owner_Delete a comic
+1_Land to home_page
+2_Sign in/up
+3_Land to your own index
+4_Delete a comic
+
+Case 3 : Owner_Update a comic
+1_Land to home_page
+2_Sign in/up
+3_Land to your own index
+4_Click on it to see the comic card
+5_Update a comic
+
+Case 4 : Buyer_Search a comic
+1_Land to home_page
+2_Search a specific comic
+3_Click on it to see the comic card
+
+Case 5 : Buyer_Book a comic
+1_Sign in/up
+2_Book this comic
