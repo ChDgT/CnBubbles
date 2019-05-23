@@ -1,0 +1,7 @@
+<%= simple_form_for [@comic] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :publication_date %>
+  <%= f.input :category %>
+  <%= f.input :description %>
+  <%= f.submit "add a comic", class: "btn btn-primary" %>
+<% end %>
