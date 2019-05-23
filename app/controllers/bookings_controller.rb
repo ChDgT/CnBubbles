@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @comic = Comic.find(params[:comic_id])
     @booking = Booking.new(booking_params)
     @booking.comic = Comic.find(params[:comic_id])
       if @booking.save

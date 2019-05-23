@@ -6,3 +6,6 @@
   <h4><%= @comic.category %> </h4>
   <h4><%= @comic.description %> </h4>
 </div>
+
+<%= link_to "Go back to the comics", comics_path %>
+<%= link_to "Book now my friend!",  new_comic_booking_path(@comic) %>
