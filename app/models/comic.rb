@@ -3,5 +3,5 @@ class Comic < ApplicationRecord
   validates :title, presence: true, allow_blank: false
   validates :description, presence: true, allow_blank: false
   validates :category, presence: true, allow_blank: false
-  validates :photo, presence: true, allow_blank: false
+  mount_uploader :photo, PhotoUploader
 end
