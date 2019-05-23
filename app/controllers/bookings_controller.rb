@@ -1,7 +1,6 @@
-class BookingController < ApplicationController
-
+class BookingsController < ApplicationController
   def new
-    @comic = Comic.find(params[:id])
+    @comic = Comic.find(params[:comic_id])
     @booking = Booking.new
   end
 
