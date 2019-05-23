@@ -1,5 +1,6 @@
 <div class="container">
   <h1>List of Comics</h1>
+  <%= link_to "Add a new comic", new_comic_path %>
   <ul>
     <% @comics.each  do |comic| %>
       <li>
