@@ -13,6 +13,7 @@ class ComicsController < ApplicationController
 
   def create
     @comic = Comic.new(comic_params)
+    @comic.user = current_user
     if @comic.save
       redirect_to comics_path
     else
