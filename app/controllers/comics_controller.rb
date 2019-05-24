@@ -4,7 +4,7 @@ class ComicsController < ApplicationController
   end
 
   def show
-    @comic = Comic.find(params['id'])
+    @comic = Comic.find(params[:id])
   end
 
   def new
@@ -22,17 +22,17 @@ class ComicsController < ApplicationController
   end
 
   def edit
-    @comic = Comic.find(params['id'])
+    @comic = Comic.find(params[:id])
   end
 
   def update
-    @comic = Comic.find(params['id'])
+    @comic = Comic.find(params[:id])
     @comic.update(comic_params)
     redirect_to comic_path(@comic)
   end
 
-  def delete
-    @comic = Comic.find(params['id'])
+  def destroy
+    @comic = Comic.find(params[:id])
     @comic.destroy
     redirect_to comics_path
   end

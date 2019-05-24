@@ -1,18 +1,22 @@
-<div class="container">
+<body>
+<div class="container-fluid" style="min-height:80vh">
   <div class="row d-flex justify-content-center">
       <%= link_to "Add a new comic", new_comic_path,class: "left btn btn-primary" %>
-    <h1 class="text-center">List of Comics</h1>
+    <h1 class="text-center">All comics</h1>
     </div>
+    <div class="row d-fles justify-content-center">
+     <h3>Mouse-over a comic for see their informations</h3>
+   </div>
   <div class="row d-flex justify-content-center" >
       <% @comics.each  do |comic| %>
-          <div class="col-lg-4 col-xs-12 col-md-6 col-sm-12" style="margin-bottom:10px;">
-          <article style="background-image: url(https://cdn.radiofrance.fr/s3/cruiser-production/2017/12/0c7a1205-f978-4dc8-af33-18364600a05b/640_gettyimages-671080678-1.jpg) ;background-size: 380px 220px ; background-repeat:no-repeat; border:1px solid red;-moz-border-radius:20px; -webkit-border-radius:20px;" >
-              <div class="overlay2">
-                <h2> <%= comic.title %></h2>
+          <div class="col-lg-2 col-xs-12 col-md-6 col-sm-12" style="margin-bottom:10px;height: 280px">
+          <article id="article" style="background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('<%= cl_image_path comic.photo, height: 550, width: 400, crop: :fill %>');border:1px solid black;background-repeat:cover">
+              <div class="overlay2 none" id="overlay2" style="    transition-duration: 1s;">
+                <h4> <%= comic.title.capitalize %></h4>
                 <div class="separer2"></div>
-                <H3><%= comic.category %> </small></h3>
+                <p><%= comic.category.capitalize %> </small></p>
                 <p><small> <%= comic.publication_date %> </small></p>
-                <a href="pages-articles/article-1-gaspillage.php" class="button-2">Read</a>
+                <%= link_to "visit", comic_path(comic),class: "button-2" %>
               </div>
             </article>
           </div>
@@ -20,5 +24,29 @@
         </div>
     </div>
 </div>
+<script>
 
+  const overlay = document.querySelectorAll("#overlay2")
+  const articles = document.querySelectorAll("article")
+  articles.forEach ((article) => {
+    article.addEventListener("mouseover", (event)  => {
+      duration: 2000;
+      article.childNodes[1].classList.remove("none");
+      article.style.width = "180px";
+      article.style.height = "260px";
+      article.childNodes[1].style.width ="180px";
+      article.childNodes[1].style.height ="260px";
+    });
+  });
+  articles.forEach ((article) => {
+    article.addEventListener("mouseout", (event) => {
+      article.childNodes[1].classList.add("none");
+      article.style.height = "220px";
+      article.style.width = "150px";
+      article.childNodes[1].style.width = "220"
+      article.childNodes[1].style.width = "150"
+    });
+  });
+</script>
 
+</body>

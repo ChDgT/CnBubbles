@@ -1,21 +1,19 @@
-<div class="container">
+<div class="container" style="min-height: 80vh">
   <h1>Comic's info</h1>
 
-  <h4><%= @comic.title %> </h4>
-  <h4><%= @comic.publication_date %> </h4>
-  <h4><%= @comic.category %> </h4>
-  <h4><%= @comic.description %> </h4>
-</div>
-
-
-<div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Breakfast
+<div class="card-product">
+  <%= cl_image_tag(@comic.photo, height: 550, width: 400, crop: :fill) %>
+  <div class="card-product-infos">
+    <h1><%= @comic.title.capitalize %></h1>
+    <h3><%= @comic.category.capitalize %></h3>
+    <p> <%= @comic.description %> </p>
+    <p><small> <%= @comic.publication_date %> </small></p>
   </div>
 </div>
-
-<%= link_to "Go back to the comics", comics_path %>
-<%= link_to "Book now my friend!",  new_comic_booking_path(@comic) %>
-
+  <%= link_to "Go back to the comics", comics_path, class: "btn btn-primary" %>
+  <span class="btn btn-danger"><%= link_to "Delete", comic_path(@comic),
+  {method: :delete, data:{ confirm: "Are you sure?"}}%></span>
+    <%= link_to "Edit", edit_comic_path(@comic), class: "btn btn-warning"%>
+</div>
 
 
