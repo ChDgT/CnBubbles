@@ -1,5 +1,6 @@
 class ComicsController < ApplicationController
   def index
+    @user = current_user
     @comics = Comic.all
   end
 
