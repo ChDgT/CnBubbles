@@ -13,7 +13,9 @@
   <%= link_to "Go back to the comics", comics_path, class: "btn btn-primary" %>
   <span class="btn btn-danger"><%= link_to "Delete", comic_path(@comic),
   {method: :delete, data:{ confirm: "Are you sure?"}}%></span>
+  <% if policy(@comic).edit? %>
     <%= link_to "Edit", edit_comic_path(@comic), class: "btn btn-warning"%>
+    <% end %>
 </div>
 
 
