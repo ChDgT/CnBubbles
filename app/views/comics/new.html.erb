@@ -3,9 +3,9 @@
     <div class="col-6 py-3 ">
 <%= simple_form_for [@comic] do |f| %>
   <%= f.input :title %>
-  <%= f.input :publication_date %>
   <%= f.input :category %>
   <%= f.input :description %>
+  <%= f.input :publication_date %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
   <%= f.submit "add a comic", class: "btn btn-primary" %>
