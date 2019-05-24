@@ -1,5 +1,5 @@
 <h1>Here's all your reservations</h1>
-<%= link_to "Go back", comic_path(@comic) %>
+<%= link_to "Go back", comics_path %>
 <% @your_bookings.each do |booking| %>
 <div class="card-product">
   <%= cl_image_tag(booking.photo, height: 550, width: 400, crop: :fill) %>
