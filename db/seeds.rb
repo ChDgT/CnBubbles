@@ -8,7 +8,4 @@ require 'date'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.create(email: "jojo@gmail.com", password: "jojo")
-superman = Comic.create(title: "Superman", category: "action", description:"un super-héro", publication_date:Date.new(1975, 5, 12), photo: "superman.jpg", user_id: '1')
-
 # puts superman.valid?
