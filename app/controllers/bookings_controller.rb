@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking).order(created_at: :desc)
     @your_bookings = []
     @bookings.each do |booking|
       @comic = booking.comic
@@ -11,12 +11,14 @@ class BookingsController < ApplicationController
   def new
     @comic = Comic.find(params[:comic_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @comic = Comic.find(params[:comic_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
+    authorize @booking
     @booking.comic = Comic.find(params[:comic_id])
       if @booking.save
         redirect_to user_bookings_path(@comic)
@@ -27,6 +29,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @user = current_user
+    authorize @booking
     @booking = @user.bookings
   end
 
