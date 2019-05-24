@@ -19,4 +19,8 @@ class ComicPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def available?
+    true
+  end
 end
