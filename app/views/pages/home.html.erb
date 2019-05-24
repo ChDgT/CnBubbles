@@ -1,7 +1,32 @@
+ <body>
  <%= render 'shared/banner' %>
 <div class="container">
   <div class="row">
     <div class="col-md-8">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     </div>
   </div>
 </div>
+
+<script>
+  anime.timeline({loop: true})
+  .add({
+    targets: '.ml15 .word',
+    scale: [14,1],
+    opacity: [0,1],
+    easing: "easeOutCirc",
+    duration: 1000,
+    delay: function(el, i) {
+      return 400 * i;
+    }
+  }).add({
+    targets: '.ml15',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 5000
+  });
+</script>
+</body>
