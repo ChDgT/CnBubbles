@@ -5,6 +5,7 @@
   <%= cl_image_tag(@comic.photo, height: 550, width: 400, crop: :fill) %>
   <div class="card-product-infos">
     <h1><%= @comic.title.capitalize %></h1>
+    <h2><%= "#{@comic.price}€" %></h2>
     <h3><%= @comic.category.capitalize %></h3>
     <p> <%= @comic.description %> </p>
     <p><small> <%= @comic.publication_date %> </small></p>
