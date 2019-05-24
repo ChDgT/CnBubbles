@@ -22,6 +22,7 @@ class BookingsController < ApplicationController
     @booking.comic = Comic.find(params[:comic_id])
       if @booking.save
         @booking.comic.available = false
+        @booking.comic.save
         redirect_to user_bookings_path(@comic)
       else
         render :new
@@ -35,6 +36,7 @@ class BookingsController < ApplicationController
   end
 
 private
+
   def booking_params
     params.permit(:user_id, :comic_id)
   end

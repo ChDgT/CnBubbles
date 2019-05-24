@@ -6,7 +6,7 @@ class ComicsController < ApplicationController
   def available
     @comics = Comic.all
     @available = @comics.select do |comic|
-      comic.available == false
+      comic.available == true
     end
     authorize @comics
   end
