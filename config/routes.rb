@@ -9,4 +9,11 @@ Rails.application.routes.draw do
   resources :users do
     resources :bookings, only: [:index, :destroy]
   end
+
+  resources :comics, only: [] do
+    collection do
+      get :search
+    end
+  end
 end
+
