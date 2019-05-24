@@ -1,6 +1,5 @@
 class ComicsController < ApplicationController
   def index
-    # @comics = Comic.all
     @comics = policy_scope(Comic).order(created_at: :desc)
   end
 
