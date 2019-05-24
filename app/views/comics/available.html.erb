@@ -1,0 +1,13 @@
+<h1>Available comics</h1>
+
+<% @available.each do |comic| %>
+
+<div class="card-product">
+  <%= cl_image_tag(comic.photo, height: 550, width: 400, crop: :fill) %>
+  <div class="card-product-infos">
+    <h1><%= comic.title.capitalize %></h1>
+    <h3><%= comic.category.capitalize %></h3>
+    <p> <%= comic.description %> </p>
+  </div>
+</div>
+  <% end %>
