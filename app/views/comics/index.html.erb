@@ -1,7 +1,9 @@
 <body>
 <div class="container-fluid" style="min-height:80vh">
   <div class="row d-flex justify-content-center">
+      <% if policy(Comic).create? %>
       <%= link_to "Add a new comic", new_comic_path,class: "left btn btn-primary" %>
+      <% end %>
     <h1 class="text-center">All comics</h1>
     </div>
     <div class="row d-fles justify-content-center">
@@ -10,7 +12,8 @@
   <div class="row d-flex justify-content-center" >
       <% @comics.each  do |comic| %>
           <div class="col-lg-2 col-xs-12 col-md-6 col-sm-12" style="margin-bottom:10px;height: 280px">
-          <article id="article" style="background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('<%= cl_image_path comic.photo, height: 550, width: 400, crop: :fill %>');border:1px solid black;background-repeat:cover">
+          <% photo = comic.photo.url.nil? ? asset_path("superman.jpg") : comic.photo %>
+          <article id="article" style="background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('<%= cl_image_path photo, height: 550, width: 400, crop: :fill %>');border:1px solid black;background-repeat:cover">
               <div class="overlay2 none" id="overlay2" style="    transition-duration: 1s;">
                 <h4> <%= comic.title.capitalize %></h4>
                 <div class="separer2"></div>
