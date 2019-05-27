@@ -31,12 +31,12 @@
   <% if policy(@comic).edit? %>
     <%= link_to "Edit", edit_comic_path(@comic), class: "btn btn-primary"%>
     <% end %>
-    <% if @comic.available %>
+    <% if policy(@comic).destroy? %>
       <span class="btn btn-danger"><%= link_to "Delete", comic_path(@comic), {method: :delete, data:{ confirm: "Are you sure?"}}%></span>
       <% end %>
 </div>
 <div class="row d-flex justify-content-center">
-<h2>Votre comic se  trouve Ici !</h2>
+<h2>Votre comic se  trouve ici !</h2>
 </div>
 <div
   id="map"

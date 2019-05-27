@@ -1,16 +1,58 @@
+<body>
+<div class="container py-3">
+  <div class="row d-flex justify-content-center text-center py-3">
+    <div class="col-4 text-center">
+      <h1>Available comics</h1>
+    </div>
+  </div>
 
-<h1>Available comics</h1>
-
-<% @available.each do |comic| %>
-
-<div class="card-product">
- <%= comic.photo.url.nil? ? image_tag("no_photo.jpg") : cl_image_tag(comic.photo, height: 550, width: 400, crop: :fill) %>
-  <div class="card-product-infos">
-    <h1><%= comic.title.capitalize %></h1>
-    <h3><%= comic.category.capitalize %></h3>
-    <p> <%= comic.description %> </p>
+  <div class="row justify-content-center">
+  <% @available.each do |comic| %>
+    <div class="col-4" >
+      <div class="d-flex justify-content-center">
+        <% photo = comic.photo.url.nil? ? image_path("no_photo.jpg") : cl_image_path(comic.photo, height: 300, width: 230, crop: :fill) %>
+        <article id="article" style="background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('<%= photo %>');border:1px solid black;background-repeat:cover">
+          <div class="overlay2 none" id="overlay2" style="transition-duration: 1s;">
+              <h4> <%= comic.title.capitalize %></h4>
+              <%= "#{comic.price}€" %>
+              <div class="separer2">
+                <p><%= comic.category.capitalize %> </small></p>
+                <p><small> <%= comic.publication_date %> </small></p>
+                <%= link_to "visit", comic_path(comic),class: "button-2" %>
+              </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  <% end %>
   </div>
 </div>
-  <% end %>
 
-    <img class="bullet" src="kisspng-bullet-icon-a-bullet-5a6ba6c01a0e90.5602092415170044801068.png" alt="">
+<script>
+
+  const overlay = document.querySelectorAll("#overlay2")
+  const articles = document.querySelectorAll("article")
+  articles.forEach ((article) => {
+    article.addEventListener("mouseover", (event)  => {
+      duration: 2000;
+      article.childNodes[1].classList.remove("none");
+      article.style.width = "260px";
+      article.style.height = "330px";
+      article.childNodes[1].style.width ="180px";
+      article.childNodes[1].style.height ="260px";
+    });
+  });
+  articles.forEach ((article) => {
+    article.addEventListener("mouseout", (event) => {
+      article.childNodes[1].classList.add("none");
+      article.style.height = "300px";
+      article.style.width = "230px";
+      article.childNodes[1].style.width = "220"
+      article.childNodes[1].style.width = "150"
+    });
+  });
+</script>
+
+</body>
+
+
