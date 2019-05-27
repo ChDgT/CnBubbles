@@ -1,9 +1,10 @@
+    <%= render 'shared/photobanner' %>
 <h1>Available comics</h1>
 
 <% @available.each do |comic| %>
 
 <div class="card-product">
-  <% cl_image_tag(@comic.photo, height: 550, width: 400, crop: :fill %>
+ <%= comic.photo.url.nil? ? cl_image_tag(asset_path("no_photo.jpeg")) : cl_image_tag(comic.photo, height: 550, width: 400, crop: :fill) %>
   <div class="card-product-infos">
     <h1><%= comic.title.capitalize %></h1>
     <h3><%= comic.category.capitalize %></h3>
@@ -11,3 +12,5 @@
   </div>
 </div>
   <% end %>
+
+    <img class="bullet" src="kisspng-bullet-icon-a-bullet-5a6ba6c01a0e90.5602092415170044801068.png" alt="">

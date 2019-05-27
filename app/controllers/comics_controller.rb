@@ -8,6 +8,7 @@ class ComicsController < ApplicationController
     @available = @comics.select do |comic|
       comic.available == true
     end
+
     authorize @comics
   end
 

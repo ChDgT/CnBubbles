@@ -1,3 +1,7 @@
+<%= render 'shared/photobanner' %>
+<body>
+
+</body>
 <div class="container" style="min-height: 80vh">
   <h1>Comic's info</h1>
 
@@ -32,6 +36,16 @@
       <span class="btn btn-danger"><%= link_to "Delete", comic_path(@comic), {method: :delete, data:{ confirm: "Are you sure?"}}%></span>
       <% end %>
 </div>
+<div class="row d-flex justify-content-center">
+<h2>Votre comic se  trouve Ici !</h2>
+</div>
+<div
+  id="map"
+  style="width: 100%;
+  height: 200px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="pk.eyJ1IjoieW9yZGFubyIsImEiOiJjanc2N2NyYWMwMjc2M3lxaDY5amxjcGJxIn0.Y02pRKy2ZP7-rFqq_Mt8Eg"
+></div>
 
 
 </div>
