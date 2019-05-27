@@ -8,7 +8,6 @@ class ComicsController < ApplicationController
     @available = @comics.select do |comic|
       comic.available == true
     end
-
     authorize @comics
   end
 
@@ -51,8 +50,14 @@ class ComicsController < ApplicationController
     @comic = Comic.find(params[:id])
     @comic.user = current_user
     authorize @comic
-    @comic.destroy
-    redirect_to comics_path
+    @comic.destroy(comic_params)
+    # if @comic.user_id == current_user.id
+    #   @comic.destroy
+    #   redirect_to comics_path
+    # else
+    #   show
+    #   render :comic
+    # end
   end
 
   private
