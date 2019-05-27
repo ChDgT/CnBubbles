@@ -6,20 +6,22 @@
   <h1>Comic's info</h1>
 
 <div class="card-product rounded">
-  <%= cl_image_tag(@comic.photo, height: 550, width: 400, crop: :fill) %>
-  <div class="d-flex align-items-center justify-content-around">
+  <%= @comic.photo.url.nil? ? cl_image_tag(asset_path("no_photo.jpeg")) : cl_image_tag(@comic.photo, height: 550, width: 400, crop: :fill) %>
+  <div class="d-flex">
     <div class="card-product-infos">
       <h1><%= @comic.title.capitalize %></h1>
-      <h2><%= "#{@comic.price}€" %></h2>
+      <h3><%= "#{@comic.price}€" %></h3>
       <h3><%= @comic.category.capitalize %></h3>
-      <p> <%= @comic.description %> </p>
-      <p><small> <%= @comic.publication_date %> </small></p>
+      <p><%= @comic.description %></p>
+      <p><%= @comic.publication_date %></p>
     </div>
 
     <% if @comic.available %>
       <div class='book-button'><%= link_to "Book this comic now !", new_comic_booking_path(@comic)%></div>
       <% else %>
-      <a href="#" class="book-button">Already Booked</a>
+      <div class="back-booked">
+      Already Booked
+      </div>
       <% end %>
   </div>
 </div>
@@ -31,8 +33,7 @@
     <%= link_to "Edit", edit_comic_path(@comic), class: "btn btn-primary"%>
     <% end %>
     <% if @comic.available %>
-      <span class="btn btn-outline-dark"><%= link_to "Delete", comic_path(@comic),
-      {method: :delete, data:{ confirm: "Are you sure?"}}%></span>
+      <span class="btn btn-danger"><%= link_to "Delete", comic_path(@comic), {method: :delete, data:{ confirm: "Are you sure?"}}%></span>
       <% end %>
 </div>
 <div class="row d-flex justify-content-center">

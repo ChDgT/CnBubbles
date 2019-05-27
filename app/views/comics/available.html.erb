@@ -4,7 +4,7 @@
 <% @available.each do |comic| %>
 
 <div class="card-product">
-  <%= cl_image_tag(comic.photo, height: 550, width: 400, crop: :fill) %>
+  <% cl_image_tag(@comic.photo, height: 550, width: 400, crop: :fill %>
   <div class="card-product-infos">
     <h1><%= comic.title.capitalize %></h1>
     <h3><%= comic.category.capitalize %></h3>
