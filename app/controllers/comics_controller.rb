@@ -6,18 +6,15 @@ class ComicsController < ApplicationController
   def available
     @comics = Comic.all
     @available = @comics.select do |comic|
-    comic.available == true
+      comic.available == true
     end
+
     authorize @comics
   end
-  def address
-  end
+
   def show
     @comic = Comic.find(params[:id])
     authorize @comic
-    #@comic = Comic.where.not(latitude: nil, longitude: nil)
-    @markers = { lat: @comic.latitude, lng: @comic.longitude}
-
   end
 
   def new
@@ -61,6 +58,6 @@ class ComicsController < ApplicationController
   private
 
   def comic_params
-    params.require(:comic).permit(:title, :description, :category, :publication_date, :photo, :price, :address)
+    params.require(:comic).permit(:title, :description, :category, :publication_date, :photo, :price)
   end
 end
