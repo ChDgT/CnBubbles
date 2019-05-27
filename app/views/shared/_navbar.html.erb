@@ -13,6 +13,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
+          <%= link_to "Add a comic", new_comic_path, class: "nav-link-3" %>
           <%= link_to "Your reservations", user_bookings_path(current_user), class: "nav-link-1"  %>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure ?" }, class: "nav-link-2" %>
         </li>
