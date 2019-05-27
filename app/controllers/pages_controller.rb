@@ -5,5 +5,4 @@ class PagesController < ApplicationController
     @comics = Comic.all
     @comics.reverse
     @comics = @comics.take(5)
-  end
 end
