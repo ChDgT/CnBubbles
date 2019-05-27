@@ -6,7 +6,7 @@
   <h1>Comic's info</h1>
 
 <div class="card-product rounded">
-  <%= @comic.photo.url.nil? ? image_tag("no_photo") : cl_image_tag(@comic.photo, height: 550, width: 400, crop: :fill) %>
+  <%= @comic.photo.url.nil? ? image_tag("no_photo.jpg") : cl_image_tag(@comic.photo, height: 550, width: 400, crop: :fill) %>
   <div class="d-flex">
     <div class="card-product-infos">
       <h1><%= @comic.title.capitalize %></h1>

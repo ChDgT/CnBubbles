@@ -10,7 +10,7 @@
 
       <% @comics.each  do |comic| %>
           <div class="col-lg-2 col-xs-12 col-md-6 col-sm-12" style="margin-bottom:10px;height: 280px">
-          <% photo = comic.photo.url.nil? ? image_path("no_photo") : cl_image_path(comic.photo, height: 550, width: 400, crop: :fill) %>
+          <% photo = comic.photo.url.nil? ? image_path("no_photo.jpg") : cl_image_path(comic.photo, height: 550, width: 400, crop: :fill) %>
           <article id="article" style="background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('<%= photo %>');border:1px solid black;background-repeat:cover">
               <div class="overlay2 none" id="overlay2" style=" transition-duration: 1s;">
                 <h4> <%= comic.title.capitalize %></h4>
