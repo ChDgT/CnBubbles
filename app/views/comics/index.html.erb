@@ -1,33 +1,44 @@
 <body>
 <div class="container-fluid" style="min-height:80vh">
-  <div class="row d-flex justify-content-center">
-      <% if policy(Comic).create? %>
-      <%= link_to "Add a new comic", new_comic_path,class: "left btn btn-primary" %>
-      <% end %>
-    <h1 class="text-center">All comics</h1>
+  <div class="row d-flex justify-content-center text-center">
+    <div class="col-2">
+      <div class="col-flex">
+          <%= link_to "See available comics", available_comics_path, class: "btn btn-info" %>
+      </div>
     </div>
-    <div class="row d-fles justify-content-center">
-     <h3>Mouse-over a comic for see their informations</h3>
-   </div>
+    <div class="col-4 text-center">
+      <h1>All comics</h1>
+      <h3>Mouse-over a comic for see their informations</h3>
+    </div>
+    <div class="col-2">
+      <div class="col-flex">
+        <% if policy(Comic).create? %>
+          <%= link_to "Add a new comic", new_comic_path, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
   <div class="row d-flex justify-content-center" >
-      <% @comics.each  do |comic| %>
-          <div class="col-lg-2 col-xs-12 col-md-6 col-sm-12" style="margin-bottom:10px;height: 280px">
-          <% photo = comic.photo.url.nil? ? asset_path("superman.jpg") : comic.photo %>
-          <article id="article" style="background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('<%= cl_image_path photo, height: 550, width: 400, crop: :fill %>');border:1px solid black;background-repeat:cover">
-              <div class="overlay2 none" id="overlay2" style="    transition-duration: 1s;">
-                <h4> <%= comic.title.capitalize %></h4>
-          <%= "#{comic.price}€" %>
-                <div class="separer2"></div>
-                <p><%= comic.category.capitalize %> </small></p>
-                <p><small> <%= comic.publication_date %> </small></p>
-                <%= link_to "visit", comic_path(comic),class: "button-2" %>
+    <% @comics.each  do |comic| %>
+      <div class="col-lg-2 col-xs-12 col-md-6 col-sm-12" style="margin-bottom:10px;height: 280px">
+              <% photo = comic.photo.url.nil? ? asset_path("superman.jpg") : comic.photo %>
+              <article id="article" style="background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('<%= cl_image_path photo, height: 550, width: 400, crop: :fill %>');border:1px solid black;background-repeat:cover">
+                  <div class="overlay2 none" id="overlay2" style="    transition-duration: 1s;">
+                    <h4> <%= comic.title.capitalize %></h4>
+              <%= "#{comic.price}€" %>
+                    <div class="separer2"></div>
+                    <p><%= comic.category.capitalize %> </small></p>
+                    <p><small> <%= comic.publication_date %> </small></p>
+                    <%= link_to "visit", comic_path(comic),class: "button-2" %>
+                  </div>
+                </article>
               </div>
-            </article>
-          </div>
           <% end %>
         </div>
-    </div>
+      </div>
 </div>
+
 <script>
 
   const overlay = document.querySelectorAll("#overlay2")
@@ -52,8 +63,5 @@
     });
   });
 </script>
-
-<%= link_to "See available comics", available_comics_path, class: "btn btn-info"  %>
-<%= link_to "See your reservations", user_bookings_path(current_user), class: "btn btn-info"  %>
 
 </body>
