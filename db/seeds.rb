@@ -6,8 +6,9 @@ url = "https://www.senscritique.com/bd/tops/top100-des-top10"
 
 html_file = open(url).read
 html_doc = Nokogiri::HTML(html_file)
+User.create(email: "1@gmail.com", password: "azerty")
 
-html_doc.search('.elto-item').each do |element|
+html_doc.search('.elto-item').take(30).each do |element|
   colonne = element.search('.elto-flexible-column')
   title = colonne.search('h2 a').text
   description = colonne.search(".elco-description").text.strip
@@ -15,7 +16,15 @@ html_doc.search('.elto-item').each do |element|
   cadre = element.search('figure').search('.d-link .lazy')
   photo = cadre.css('img').attribute('data-original').value
 
-  Comic.create(title: title, publication_date: date, description: description, category: 'cool', photo: photo, user_id: 1, price: 1)
+  # hello = Cloudinary::Uploader.upload(photo)
+  # p image_url photo, host: "https://www.senscritique.com/bd/tops/top100-des-top10"
+
+
+
+  comic = Comic.new(title: title, publication_date: date, category: "ooo", description: description, user_id: 1, price: 1)
+  comic.remote_photo_url = photo
+  comic.user = User.first
+  comic.save
 end
 
 
