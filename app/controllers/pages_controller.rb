@@ -4,6 +4,6 @@ class PagesController < ApplicationController
   def home
     @comics = Comic.all
     @comics.reverse
-   @comics = @comics.take(5)
-end
+    @comics = @comics.take(5)
+  end
 end
