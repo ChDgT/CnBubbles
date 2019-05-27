@@ -16,23 +16,12 @@ html_doc.search('.elto-item').take(30).each do |element|
   cadre = element.search('figure').search('.d-link .lazy')
   photo = cadre.css('img').attribute('data-original').value
 
-  # hello = Cloudinary::Uploader.upload(photo)
-  # p image_url photo, host: "https://www.senscritique.com/bd/tops/top100-des-top10"
 
+  price = (1..10).to_a.sample
 
-
-  comic = Comic.new(title: title, publication_date: date, category: "ooo", description: description, user_id: 1, price: 1)
+  comic = Comic.new(title: title, publication_date: date, category: "undefined", description: description, user_id: 1, price: price)
   comic.remote_photo_url = photo
   comic.user = User.first
   comic.save
 end
-
-
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
