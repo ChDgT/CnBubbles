@@ -15,15 +15,8 @@ html_doc.search('.elto-item').each do |element|
   cadre = element.search('figure').search('.d-link .lazy')
   photo = cadre.css('img').attribute('data-original').value
 
-  Comic.create(title: title, publication_date: date, description: description, category: 'cool', photo: photo, user_id: 1, price: 1)
+  price = (1..10).to_a.sample
+
+  Comic.create(title: title, publication_date: date, description: description, category: 'undefined', photo: photo, user_id: 1, price: price)
 end
-
-
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
