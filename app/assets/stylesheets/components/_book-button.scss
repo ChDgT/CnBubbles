@@ -7,7 +7,7 @@
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   border-radius: 3px;
-  color: white;
+  color: white !important;
   text-align:center
   }
 
@@ -17,3 +17,7 @@
   font-family: "Marvel-Regular";
   font-size:25px
 }
+
+ a {
+  color:white
+ }

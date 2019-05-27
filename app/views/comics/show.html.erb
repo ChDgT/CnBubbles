@@ -17,7 +17,7 @@
     </div>
 
     <% if @comic.available %>
-      <div class='book-button'><%= link_to "Book this comic now !", new_comic_booking_path(@comic)%></div>
+      <div class='book-button btn btn-primaty'><%= link_to "Book this comic now !", new_comic_booking_path(@comic)%></div>
       <% else %>
       <div class="back-booked">
       Already Booked
