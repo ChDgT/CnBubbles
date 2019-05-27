@@ -25,16 +25,18 @@
 }
 
 .nav-link-1{
-  margin-right: 15px;
+  margin-right: 10px;
+  padding: 5%, 0%;
   color: inherit;
+  background-color: #ffcf99;
+  border-radius: 8%;
+  transition-duration: 0.5s;
+  &:hover {
+        border-radius: 50%;
+      }
 }
 
 .nav-link-2{
-  color: inherit;
-}
-
-.nav-link-3{
-  margin-right: 15px;
   color: inherit;
 }
 
