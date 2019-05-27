@@ -18,8 +18,7 @@
       </div>
     </div>
   </div>
-  <img class="bullet" src="kisspng-bullet-icon-a-bullet-5a6ba6c01a0e90.5602092415170044801068.png" alt="">
-  <div class="row d-flex justify-content-center" >
+  <div class="row d-flex justify-content-center py-3" >
     <% @comics.each  do |comic| %>
       <div class="col-lg-2 col-xs-12 col-md-6 col-sm-12" style="margin-bottom:10px;height: 280px">
               <% photo = comic.photo.url.nil? ? image_path("no_photo.jpg") : cl_image_path(comic.photo, height: 550, width: 400, crop: :fill) %>
