@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="min-height:70vh">
   <div class="row justify-content-center">
     <div class="col-6 py-3 ">
 <%= simple_form_for [@comic] do |f| %>
@@ -8,14 +8,13 @@
   <%= f.input :description %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
-  <%= f.submit "add a comic", class: "btn btn-primary" %>
+  <%= f.submit "Edit the comic", class: "btn btn-primary" %>
 <% end %>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12 text-right ">
-    <%= link_to "Go to the list", comics_path %>
+    <div class="col-2 text-right ">
+    <%= link_to "Go to the list", comics_path, class: "btn btn-info" %>
     </div>
   </div>
+</div>
 </div>
 
