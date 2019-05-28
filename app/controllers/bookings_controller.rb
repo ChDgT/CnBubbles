@@ -8,25 +8,16 @@ class BookingsController < ApplicationController
     end
   end
 
-  def new
-    @comic = Comic.find(params[:comic_id])
-    @booking = Booking.new
-    authorize @booking
-  end
-
   def create
     @comic = Comic.find(params[:comic_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     authorize @booking
     @booking.comic = Comic.find(params[:comic_id])
-      if @booking.save
-        @booking.comic.available = false
-        @booking.comic.save
-        redirect_to user_bookings_path(@comic)
-      else
-        render :new
-      end
+    @booking.save
+    @booking.comic.available = false
+    @booking.comic.save
+    redirect_to comic_path(@comic)
   end
 
   def destroy
