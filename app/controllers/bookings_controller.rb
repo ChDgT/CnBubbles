@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
   def pending
     @bookings = policy_scope(Booking).order(created_at: :desc)
     @pendings = @bookings.select do |booking|
-      booking.user == current_user && booking.pending
+      booking.comic.user == current_user && booking.pending
     end
     authorize @bookings
   end
