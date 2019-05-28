@@ -15,11 +15,11 @@ html_doc.search('.elto-item').take(50).each do |element|
   date = colonne.search('h2 span').text.tr('()', '').to_i
   cadre = element.search('figure').search('.d-link .lazy')
   photo = cadre.css('img').attribute('data-original').value
-
+  address = "14 rue valiton, clichy"
 
   price = (1..10).to_a.sample
 
-  comic = Comic.new(title: title, publication_date: date, category: "undefined", description: description, user_id: 1, price: price)
+  comic = Comic.new(title: title, publication_date: date, category: "undefined", description: description, user_id: 1, price: price,address: address)
   comic.remote_photo_url = photo
   comic.user = User.first
   comic.save
