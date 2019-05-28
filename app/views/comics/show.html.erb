@@ -14,7 +14,7 @@
         <p><%= @comic.publication_date %></p>
       </div>
 
-      <% if @comic.available %>
+      <% if @comic.status == "Available" %>
         <%= simple_form_for [@comic, @booking] do |f| %>
           <%= f.submit "Book now !", class: "btn btn-primary" %>
         <% end %>

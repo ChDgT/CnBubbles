@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.comic = Comic.find(params[:comic_id])
     @booking.save
-    @booking.comic.available = false
+    @booking.comic.status = "Pending"
     @booking.comic.save
     redirect_to comic_path(@comic)
   end
