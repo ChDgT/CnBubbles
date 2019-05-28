@@ -28,18 +28,19 @@ class BookingsController < ApplicationController
     authorize @bookings
   end
 
-  # def edit
-  # end
-
   def update
     @booking = Booking.find(params['id'])
     @booking.pending = false
     @booking.save
-    @booking.comic.status == "Booked"
-    @booking.comic.save
-
-
     authorize @booking
+      a = current_user.bookings.select do |booking|
+        booking.pending == true && booking.comic.user != current_user
+      end
+      if a.empty?
+        redirect_to comics_path
+      else
+        redirect_to user_pending_path(current_user)
+      end
   end
 
   def destroy
