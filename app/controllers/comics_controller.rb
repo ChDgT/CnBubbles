@@ -21,7 +21,7 @@ class ComicsController < ApplicationController
     authorize @comic
     @booking = Booking.new
     authorize @booking
-    @marker = {
+    @markers = {
         lat: @comic.latitude,
         lng: @comic.longitude
       }
