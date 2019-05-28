@@ -1,6 +1,11 @@
 class ComicsController < ApplicationController
   def index
     @comics = policy_scope(Comic).order(created_at: :desc)
+    if params[:query].present?
+      @comics = Comic.where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @comics = Comic.all
+    end
   end
 
   def pending
