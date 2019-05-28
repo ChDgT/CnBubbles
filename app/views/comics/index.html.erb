@@ -12,22 +12,18 @@
        %>
       <% end %>
     </div>
-</div>
-
-
-  <div class="row justify-content-center">
+<div class="row justify-content-center p-3">
     <% @comics.each  do |comic| %>
-      <div class="col-3" >
+      <div class="col-4" style="height:510px">
         <div class="d-flex justify-content-center">
-          <% photo = comic.photo.url.nil? ? image_path("no_photo.jpg") : cl_image_path(comic.photo, height: 300, width: 230, crop: :fill) %>
-          <article id="article" style="background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('<%= photo %>');border:1px solid black;background-repeat:cover">
-              <div class="overlay2 none" id="overlay2" style="transition-duration: 1s;">
+          <% photo = comic.photo.url.nil? ? image_path("no_photo.jpg") : cl_image_path(comic.photo, height: 260, width: 300, crop: :fill) %>
+              <article id="article" class="text-center">
+              <%= image_tag photo, width: 280 %>
                 <h4> <%= comic.title.capitalize %></h4>
                 <%= "#{comic.price}€" %>
-              <div class="separer2">
-                <%= link_to "visit", comic_path(comic),class: "button-2" %>
-
-              </div>
+                <p><%= comic.category.capitalize %> </small></p>
+                <p><small> <%= comic.publication_date %> </small></p>
+                <%= link_to "Visit", comic_path(comic),class: "none btn btn-visit-index"%>
             </article>
           </div>
         </div>
@@ -36,7 +32,6 @@
       </div>
     </div>
 </div>
-
 <script>
 
   const overlay = document.querySelectorAll("#overlay2")
@@ -44,21 +39,13 @@
   articles.forEach ((article) => {
     article.addEventListener("mouseover", (event)  => {
       duration: 2000;
-      article.childNodes[1].classList.remove("none");
-      article.style.width = "250px";
-      article.style.height = "320px";
-      article.childNodes[1].style.width ="180px";
-      article.childNodes[1].style.height ="260px";
-
+  article.childNodes[9].classList.remove("none");
     });
   });
   articles.forEach ((article) => {
     article.addEventListener("mouseout", (event) => {
-      article.childNodes[1].classList.add("none");
-      article.style.height = "300px";
-      article.style.width = "230px";
-      article.childNodes[1].style.height = "300"
-      article.childNodes[1].style.width = "230"
+      article.childNodes[9].classList.add("none");
+
     });
   });
 </script>
