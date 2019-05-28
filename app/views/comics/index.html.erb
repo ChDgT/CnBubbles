@@ -28,7 +28,7 @@
                 <div class="overlay2 none" id="overlay2" style="transition-duration: 1s;">
                   <h4> <%= comic.title.capitalize %></h4>
             <%= "#{comic.price}€" %>
-                  <div class="separer2"></div>
+                  <div class="separer2">
                   <p><%= comic.category.capitalize %> </small></p>
                   <p><small> <%= comic.publication_date %> </small></p>
                   <%= link_to "visit", comic_path(comic),class: "button-2" %>
