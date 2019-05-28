@@ -1,7 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  padding:10px;
+  padding: 0px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,7 +9,7 @@
 }
 
 .logo {
-  font-size: 25px;
+  font-size: 27px;
   color: #801336;
   font-weight: 700;
   right:10
@@ -23,18 +23,27 @@
 .nav-link-1{
   text-decoration: none;
   color: inherit;
-  padding-left: 15px;
+  margin-right: 15px;
+  margin-left: 10px;
+  &:hover{
+    border-bottom: solid 1.2px;
+    border-color:#c72c41;
+    padding-bottom: 9px;
+    text-decoration: none;
+    color: inherit;
+    color:#c72c41;
+ }
 }
 
-.nav-link-1:hover {
-  text-decoration: none;
-  color: inherit;
-}
-a.nav-link {
-  background-color: #801336;
-  color:white !important;
-  border-radius: 5px;
-}
-a.nav-link:hover {
- background-color:#c72c41;
-}
+// .nav-link-1:hover {
+//   text-decoration: none;
+//   color: inherit;
+// }
+// a.nav-link {
+//   background-color: #801336;
+//   color:white !important;
+//   border-radius: 5px;
+// }
+// a.nav-link:hover {
+//  background-color: #c72c41;
+// }
