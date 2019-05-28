@@ -1,27 +1,29 @@
+<div class="container" style="min-height:80vh">
+<div class="row d-flex justify-content-center">
+<div class="col-lg-10 text-center">
 <h1>Pending bookings</h1>
 
+
+
 <% @pendings.each do |booking| %>
-<div class="col-4" >
-  <div class="d-flex justify-content-center">
-    <% photo = booking.comic.photo.url.nil? ? image_path("no_photo.jpg") : cl_image_path(booking.comic.photo, height: 300, width: 230, crop: :fill) %>
-
-          <%= simple_form_for [booking], method: :patch, url: user_booking_path(current_user, booking) do |f| %>
-            <%= f.submit "Accept booking", class: "btn btn-primary" %>
-          <% end %>
-
-    <article id="article" style="background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('<%= photo %>');border:1px solid black;background-repeat:cover">
-      <div class="overlay2 none" id="overlay2" style="transition-duration: 1s;">
-          <h4> <%= booking.comic.title.capitalize %></h4>
-
-
-
-          <%= "#{booking.comic.price}€" %>
-          <div class="separer2">
-            <p><%= booking.comic.category.capitalize %> </small></p>
-            <p><small> <%= booking.comic.publication_date %> </small></p>
+      <div class="col-4" style="margin-bottom: 20px">
+        <div class="d-flex justify-content-center">
+          <% photo = booking.comic.photo.url.nil? ? image_path("no_photo.jpg") : cl_image_path(booking.comic.photo, height: 260, width: 300, crop: :fill) %>
+              <article id="article" class="text-center">
+              <%= image_tag photo, width: 280,class: "photo-comic" %>
+                <h4> <%= booking.comic.title.capitalize %></h4>
+                <%= "#{booking.comic.price}€" %>
+                <p><%= booking.comic.category.capitalize %> </small></p>
+                <p style="padding-bottom: 50px"> <%= booking.comic.publication_date %></p>
+              <%= simple_form_for [booking], method: :patch, url: user_booking_path(current_user, booking) do |f| %>
+            <%= f.submit "Accept booking", class: "btn btn-visit-index" %>
+            </article>
           </div>
-      </div>
-    </article>
-  </div>
-</div>
+        </div>
 <% end %>
+
+
+<% end %>
+</div>
+</div>
+</div>
