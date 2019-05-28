@@ -22,14 +22,16 @@
         <%= simple_form_for [@comic, @booking] do |f| %>
           <%= f.submit "Book now !", class: "btn btn-primary" %>
         <% end %>
-      <% else %>
+      <% elsif @comic.bookings[0].pending == true%>
         <div class="back-booked">
           Waiting for owner acceptation
         </div>
-        <% end %>
-    </div>
-  </div>
+      <% else %>
+          It's booked !
+      <% end %>
 
+  </div>
+</div>
 
 <div class="comic-option py-3">
 <%= link_to "Go back to the comics", comics_path,class: "lien-back"%>
