@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     collection do
        get 'available'
      end
+    collection do
+      get 'pending'
+    end
     resources :bookings, only: [:new, :create]
   end
 

@@ -3,10 +3,14 @@ class ComicsController < ApplicationController
     @comics = policy_scope(Comic).order(created_at: :desc)
   end
 
+  def pending
+    authorize @comics
+  end
+
   def available
     @comics = Comic.all
     @available = @comics.select do |comic|
-      comic.available == true
+      comic.status == "Available"
     end
     authorize @comics
   end
@@ -53,13 +57,6 @@ class ComicsController < ApplicationController
     @comic.user = current_user
     authorize @comic
     @comic.destroy(comic_params)
-    # if @comic.user_id == current_user.id
-    #   @comic.destroy
-    #   redirect_to comics_path
-    # else
-    #   show
-    #   render :comic
-    # end
   end
 
   private
