@@ -20,5 +20,10 @@ Rails.application.routes.draw do
       get :search
     end
   end
+
+  resources :comics do
+      resources :reviews, only: [:new, :create]
+  end
+
 end
 

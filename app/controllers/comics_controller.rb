@@ -8,18 +8,6 @@ class ComicsController < ApplicationController
     end
   end
 
-  # def pending
-  #   authorize @comics
-  # end
-
-  # def available
-  #   @comics = Comic.all
-  #   @available = @comics.select do |comic|
-  #     comic.status == "Available"
-  #   end
-  #   authorize @comics
-  # end
-
   def show
     @comic = Comic.find(params[:id])
     authorize @comic
@@ -59,14 +47,14 @@ class ComicsController < ApplicationController
 
   def destroy
     @comic = Comic.find(params[:id])
-    @comic.user = current_user
     authorize @comic
     @comic.destroy
+    redirect_to comics_path
   end
 
   private
 
   def comic_params
-    params.require(:comic).permit(:title, :description, :category, :publication_date, :photo, :price)
+    params.require(:comic).permit(:title, :description, :category, :publication_date, :photo, :price, :status)
   end
 end
