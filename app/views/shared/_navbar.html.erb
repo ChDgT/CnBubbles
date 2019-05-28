@@ -1,8 +1,8 @@
 <body>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "", class: "navbar-brand" do %>
-    <%= link_to "CnBubbles", available_comics_path, class: "logo" %>
-    <% end %>
+  <%= link_to "Available", available_comics_path, class: "nav-link-1" %>
+  <%= link_to "Your reservations", user_bookings_path(current_user), class: "nav-link-1" %>
+  <%= link_to "CnBubbles", available_comics_path, class: "logo" %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -15,7 +15,7 @@
         <li class="nav-item active">
           <%= link_to "Pending", user_pending_path(current_user), class: "nav-link-1" %>
           <%= link_to "Add a comic", new_comic_path, class: "nav-link-1" %>
-          <%= link_to "Your reservations", user_bookings_path(current_user), class: "nav-link-1"  %>
+
           <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure ?" }, class: "nav-link-1" %>
         </li>
       <% else %>
