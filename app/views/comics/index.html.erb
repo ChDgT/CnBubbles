@@ -1,25 +1,54 @@
 
-<body style="font-family:Marvel-Regular">
-<div class="container py-3" style="min-height:80vh">
-  <div class="row d-flex justify-content-between p-3">
+<body>
+<div class="container py-3">
+  <div class="row d-flex justify-content-center mt-2 mb-5 p-3">
 
-    <div class="col-4 text-center">
+    <div class="col-6 text-center">
       <%= form_tag comics_path, method: :get do %>
       <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "Type you comic's title"
+      placeholder: "Choose you comic's title"
        %>
       <% end %>
     </div>
 
-    <div class="col-2">
-      <div class="col-flex">
-          <%= link_to "Available comics", available_comics_path, class: "btn btn-primary" %>
+<div class="row justify-content-center p-3">
+    <% @comics.each  do |comic| %>
+      <div class="col-4" style="height:510px">
+        <div class="d-flex justify-content-center">
+          <% photo = comic.photo.url.nil? ? image_path("no_photo.jpg") : cl_image_path(comic.photo, height: 260, width: 300, crop: :fill) %>
+              <article id="article" class="text-center">
+              <%= image_tag photo, width: 280 %>
+                <h4> <%= comic.title.capitalize %></h4>
+                <%= "#{comic.price}€" %>
+                <p><%= comic.category.capitalize %> </small></p>
+                <p><small> <%= comic.publication_date %> </small></p>
+                <%= link_to "Visit", comic_path(comic),class: "none btn btn-visit-index"%>
+            </article>
+          </div>
+        </div>
+        <% end %>
+        </div>
       </div>
     </div>
-  </div>
+</div>
+<script>
 
+  const overlay = document.querySelectorAll("#overlay2")
+  const articles = document.querySelectorAll("article")
+  articles.forEach ((article) => {
+    article.addEventListener("mouseover", (event)  => {
+      duration: 2000;
+  article.childNodes[9].classList.remove("none");
+    });
+  });
+  articles.forEach ((article) => {
+    article.addEventListener("mouseout", (event) => {
+      article.childNodes[9].classList.add("none");
 
+    });
+  });
+</script>
 
 </body>
