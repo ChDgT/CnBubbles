@@ -21,7 +21,12 @@ class ComicsController < ApplicationController
     authorize @comic
     @booking = Booking.new
     authorize @booking
-  end
+    @marker = {
+        lat: @comic.latitude,
+        lng: @comic.longitude
+      }
+    end
+
 
   def new
     @comic = Comic.new
@@ -63,6 +68,6 @@ class ComicsController < ApplicationController
   private
 
   def comic_params
-    params.require(:comic).permit(:title, :description, :category, :publication_date, :photo, :price, :status)
+    params.require(:comic).permit(:title, :description, :category, :publication_date, :photo, :price, :status, :address)
   end
 end
