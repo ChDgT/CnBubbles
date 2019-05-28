@@ -9,14 +9,20 @@
       <%= link_to "See available comics", available_comics_path  %>
       </div>
     </div>
-    <% @your_bookings.each do |booking| %>
+    <% @your_bookings.each do |comic| %>
     <div class="card-product">
-      <%= cl_image_tag(booking.photo, height: 550, width: 400, crop: :fill) %>
+      <%= cl_image_tag(comic.photo, height: 550, width: 400, crop: :fill) %>
       <div class="card-product-infos">
-        <h1><%= booking.title.capitalize %></h1>
-        <h3><%= booking.category.capitalize %></h3>
-        <p> <%= booking.description %> </p>
-        <p><small> <%= "Date de reservation #{booking.created_at}" %> </small></p>
+
+        <% if comic.bookings[0].pending %>
+        <h1 class="text-danger">/!\ Still waiting for owner's acceptation /!\</h1>
+        <% end %>
+
+
+        <h1><%= comic.title.capitalize %></h1>
+        <h3><%= comic.category.capitalize %></h3>
+        <p> <%= comic.description %> </p>
+        <p><small> <%= "Date de reservation #{comic.created_at}" %> </small></p>
       </div>
     </div>
     <% end %>

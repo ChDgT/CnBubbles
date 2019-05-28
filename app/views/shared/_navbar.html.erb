@@ -1,7 +1,9 @@
 <body>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to "Available", available_comics_path, class: "nav-link-1" %>
+  <% if !current_user.nil? %>
   <%= link_to "Your reservations", user_bookings_path(current_user), class: "nav-link-1" %>
+  <% end %>
   <%= link_to "CnBubbles", available_comics_path, class: "logo" %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
