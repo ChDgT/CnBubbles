@@ -55,21 +55,14 @@ class ComicsController < ApplicationController
 
   def destroy
     @comic = Comic.find(params[:id])
-    @comic.user = current_user
     authorize @comic
-    @comic.destroy(comic_params)
-    # if @comic.user_id == current_user.id
-    #   @comic.destroy
-    #   redirect_to comics_path
-    # else
-    #   show
-    #   render :comic
-    # end
+    @comic.destroy
+    redirect_to comics_path
   end
 
   private
 
   def comic_params
-    params.require(:comic).permit(:title, :description, :category, :publication_date, :photo, :price)
+    params.require(:comic).permit(:user_id, :title, :description, :category, :publication_date, :photo, :price, :status, :address, :latitude, :longitude)
   end
 end

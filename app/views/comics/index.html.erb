@@ -1,37 +1,29 @@
-
 <body>
-<div class="container py-3" style="min-height:80vh">
-  <div class="row d-flex justify-content-between p-3">
+<div class="container py-3">
+  <div class="row d-flex justify-content-center mt-2 mb-5 p-3">
 
-    <div class="col-4 text-center">
+    <div class="col-6 text-center">
       <%= form_tag comics_path, method: :get do %>
       <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "Type you comic's title"
+      placeholder: "Choose you comic's title"
        %>
       <% end %>
     </div>
-
-    <div class="col-2">
-      <div class="col-flex">
-          <%= link_to "Available comics", available_comics_path, class: "btn btn-info" %>
-      </div>
-    </div>
   </div>
 
-  <div class="row justify-content-center p-3">
+
+  <div class="row justify-content-center">
     <% @comics.each  do |comic| %>
-      <div class="col-4" >
+      <div class="col-3" >
         <div class="d-flex justify-content-center">
           <% photo = comic.photo.url.nil? ? image_path("no_photo.jpg") : cl_image_path(comic.photo, height: 300, width: 230, crop: :fill) %>
           <article id="article" style="background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('<%= photo %>');border:1px solid black;background-repeat:cover">
               <div class="overlay2 none" id="overlay2" style="transition-duration: 1s;">
                 <h4> <%= comic.title.capitalize %></h4>
-          <%= "#{comic.price}€" %>
-                <div class="separer2">
-                <p><%= comic.category.capitalize %> </small></p>
-                <p><small> <%= comic.publication_date %> </small></p>
+                <%= "#{comic.price}€" %>
+              <div class="separer2">
                 <%= link_to "visit", comic_path(comic),class: "button-2" %>
               </div>
             </article>
@@ -51,8 +43,8 @@
     article.addEventListener("mouseover", (event)  => {
       duration: 2000;
       article.childNodes[1].classList.remove("none");
-      article.style.width = "260px";
-      article.style.height = "330px";
+      article.style.width = "250px";
+      article.style.height = "320px";
       article.childNodes[1].style.width ="180px";
       article.childNodes[1].style.height ="260px";
     });
