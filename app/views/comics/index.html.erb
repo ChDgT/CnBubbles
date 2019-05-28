@@ -1,5 +1,5 @@
 
-<body>
+<body style="font-family:Marvel-Regular">
 <div class="container py-3" style="min-height:80vh">
   <div class="row d-flex justify-content-between p-3">
 
@@ -15,24 +15,24 @@
 
     <div class="col-2">
       <div class="col-flex">
-          <%= link_to "Available comics", available_comics_path, class: "btn btn-info" %>
+          <%= link_to "Available comics", available_comics_path, class: "btn btn-primary" %>
       </div>
     </div>
   </div>
 
   <div class="row justify-content-center p-3">
     <% @comics.each  do |comic| %>
-      <div class="col-4" >
+      <div class="col-4" style="height:380px">
         <div class="d-flex justify-content-center">
           <% photo = comic.photo.url.nil? ? image_path("no_photo.jpg") : cl_image_path(comic.photo, height: 300, width: 230, crop: :fill) %>
-          <article id="article" style="background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('<%= photo %>');border:1px solid black;background-repeat:cover">
+          <article id="article" style="background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('<%= photo %>');border:1px solid black;background-repeat:cover">
               <div class="overlay2 none" id="overlay2" style="transition-duration: 1s;">
                 <h4> <%= comic.title.capitalize %></h4>
           <%= "#{comic.price}€" %>
                 <div class="separer2">
                 <p><%= comic.category.capitalize %> </small></p>
                 <p><small> <%= comic.publication_date %> </small></p>
-                <%= link_to "visit", comic_path(comic),class: "button-2" %>
+                <%= link_to "Visit", comic_path(comic),class: "btn btn-primary" %>
               </div>
             </article>
           </div>
@@ -53,8 +53,8 @@
       article.childNodes[1].classList.remove("none");
       article.style.width = "260px";
       article.style.height = "330px";
-      article.childNodes[1].style.width ="180px";
-      article.childNodes[1].style.height ="260px";
+      article.childNodes[1].style.width ="260px";
+      article.childNodes[1].style.height ="330px";
     });
   });
   articles.forEach ((article) => {
@@ -62,8 +62,8 @@
       article.childNodes[1].classList.add("none");
       article.style.height = "300px";
       article.style.width = "230px";
-      article.childNodes[1].style.width = "220"
-      article.childNodes[1].style.width = "150"
+      article.childNodes[1].style.height = "300"
+      article.childNodes[1].style.width = "230"
     });
   });
 </script>
