@@ -8,6 +8,14 @@ class ComicsController < ApplicationController
     end
   end
 
+  def available
+    @comics = Comic.all
+    @available = @comics.select do |comic|
+      comic.status == "Available"
+    end
+    authorize @comics
+  end
+
   def show
     @comic = Comic.find(params[:id])
     authorize @comic

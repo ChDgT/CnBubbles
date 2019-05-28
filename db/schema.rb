@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_05_28_102609) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,14 +42,6 @@ ActiveRecord::Schema.define(version: 2019_05_28_102609) do
     t.index ["user_id"], name: "index_comics_on_user_id"
   end
 
-  create_table "reveiws", force: :cascade do |t|
-    t.text "content"
-    t.bigint "comic_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["comic_id"], name: "index_reveiws_on_comic_id"
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.bigint "comic_id"
@@ -74,6 +65,5 @@ ActiveRecord::Schema.define(version: 2019_05_28_102609) do
   add_foreign_key "bookings", "comics"
   add_foreign_key "bookings", "users"
   add_foreign_key "comics", "users"
-  add_foreign_key "reveiws", "comics"
   add_foreign_key "reviews", "comics"
 end
