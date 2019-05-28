@@ -16,9 +16,11 @@ class BookingPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def pending?
+    true
+  end
+
   def destroy?
     record.user == user
   end
-
-
 end

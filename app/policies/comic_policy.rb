@@ -24,4 +24,8 @@ class ComicPolicy < ApplicationPolicy
   def available?
     true
   end
+
+  def pending?
+    true
+  end
 end

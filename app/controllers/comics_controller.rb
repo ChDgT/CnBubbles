@@ -8,14 +8,6 @@ class ComicsController < ApplicationController
     end
   end
 
-  def available
-    @comics = Comic.all
-    @available = @comics.select do |comic|
-      comic.status == "Available"
-    end
-    authorize @comics
-  end
-
   def show
     @comic = Comic.find(params[:id])
     authorize @comic
@@ -63,6 +55,6 @@ class ComicsController < ApplicationController
   private
 
   def comic_params
-    params.require(:comic).permit(:user_id, :title, :description, :category, :publication_date, :photo, :price, :status, :address, :latitude, :longitude)
+    params.require(:comic).permit(:title, :description, :category, :publication_date, :photo, :price, :status)
   end
 end

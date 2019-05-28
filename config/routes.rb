@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :bookings, only: [:index, :destroy]
+    resources :bookings, only: [:index, :destroy, :pending, :edit, :update]
+    get 'pendings', to: 'bookings#pending', as: :pending
   end
 
   resources :comics, only: [] do
