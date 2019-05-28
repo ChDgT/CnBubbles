@@ -11,7 +11,7 @@ class ComicsController < ApplicationController
   def available
     @comics = Comic.all
     @available = @comics.select do |comic|
-      comic.status == "Available"
+      !comic.bookings.nil?
     end
     authorize @comics
   end
