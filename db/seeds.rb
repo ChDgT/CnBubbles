@@ -8,7 +8,7 @@ html_file = open(url).read
 html_doc = Nokogiri::HTML(html_file)
 User.create(email: "1@gmail.com", password: "azerty")
 
-html_doc.search('.elto-item').take(50).each do |element|
+html_doc.search('.elto-item').take(10 ).each do |element|
   colonne = element.search('.elto-flexible-column')
   title = colonne.search('h2 a').text
   description = colonne.search(".elco-description").text.strip
