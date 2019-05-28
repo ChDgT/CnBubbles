@@ -1,19 +1,28 @@
+<body>
+  <div class="container py-3">
+    <div class="row d-flex justify-content-between mt-2 mb-5 p-3">
+      <div class="col-3">
+      <h1>Your reservations</h1>
+      </div>
+      <div class="col-2"></div>
+      <%= link_to "Go back", comics_path %>
+      <%= link_to "See available comics", available_comics_path  %>
+      </div>
+    </div>
+    <% @your_bookings.each do |booking| %>
+    <div class="card-product">
+      <%= cl_image_tag(booking.photo, height: 550, width: 400, crop: :fill) %>
+      <div class="card-product-infos">
+        <h1><%= booking.title.capitalize %></h1>
+        <h3><%= booking.category.capitalize %></h3>
+        <p> <%= booking.description %> </p>
+        <p><small> <%= "Date de reservation #{booking.created_at}" %> </small></p>
+      </div>
+    </div>
+    <% end %>
 
-<h1>Here's all your reservations</h1>
-<%= link_to "Go back", comics_path %>
-<% @your_bookings.each do |booking| %>
-<div class="card-product">
-  <%= cl_image_tag(booking.photo, height: 550, width: 400, crop: :fill) %>
-  <div class="card-product-infos">
-    <h1><%= booking.title.capitalize %></h1>
-    <h3><%= booking.category.capitalize %></h3>
-    <p> <%= booking.description %> </p>
-    <p><small> <%= "Date de réservation #{booking.created_at}" %> </small></p>
   </div>
-</div>
-<% end %>
-
-<%= link_to "See available comics", available_comics_path  %>
+</body>
 
 
 
