@@ -26,11 +26,13 @@
     </div>
   </div>
 
-
-  <div class="comic-option py-3">
-    <%= link_to "Go back to the comics", comics_path, class: "btn btn-primary" %>
-    <% if policy(@comic).edit? %>
-      <%= link_to "Edit", edit_comic_path(@comic), class: "btn btn-primary"%>
+<div class="comic-option py-3">
+  <%= link_to "Go back to the comics", comics_path, class:"btn btn-outline-dark"%>
+  <% if policy(@comic).edit? %>
+    <%= link_to "Edit", edit_comic_path(@comic), class: "btn btn-primary"%>
+    <% end %>
+    <% if policy(@comic).destroy? %>
+      <span class="btn btn-danger"><%= link_to "Delete", comic_path(@comic), {method: :delete, data:{ confirm: "Are you sure?"}}%></span>
       <% end %>
       <% if policy(@comic).destroy? %>
         <span class="btn btn-danger"><%= link_to "Delete", comic_path(@comic), {method: :delete, data:{ confirm: "Are you sure?"}}%></span>
