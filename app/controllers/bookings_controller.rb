@@ -28,19 +28,10 @@ class BookingsController < ApplicationController
     authorize @bookings
   end
 
-  # def edit
-  # end
-
   def update
     @booking = Booking.find(params['id'])
     @booking.pending = false
     @booking.save
-
-
-    # @booking.comic.status == "Booked"
-    # @booking.comic.save
-
-
     authorize @booking
   end
 
