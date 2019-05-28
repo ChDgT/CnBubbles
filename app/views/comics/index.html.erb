@@ -1,3 +1,4 @@
+
 <body>
 <div class="container py-3">
   <div class="row d-flex justify-content-center mt-2 mb-5 p-3">
@@ -11,7 +12,13 @@
        %>
       <% end %>
     </div>
-  </div>
+
+    <div class="col-2">
+      <div class="col-flex">
+          <%= link_to "Available comics", available_comics_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+
 
 
   <div class="row justify-content-center">
@@ -19,12 +26,13 @@
       <div class="col-3" >
         <div class="d-flex justify-content-center">
           <% photo = comic.photo.url.nil? ? image_path("no_photo.jpg") : cl_image_path(comic.photo, height: 300, width: 230, crop: :fill) %>
-          <article id="article" style="background-image:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('<%= photo %>');border:1px solid black;background-repeat:cover">
+          <article id="article" style="background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('<%= photo %>');border:1px solid black;background-repeat:cover">
               <div class="overlay2 none" id="overlay2" style="transition-duration: 1s;">
                 <h4> <%= comic.title.capitalize %></h4>
                 <%= "#{comic.price}€" %>
               <div class="separer2">
                 <%= link_to "visit", comic_path(comic),class: "button-2" %>
+
               </div>
             </article>
           </div>
@@ -47,6 +55,7 @@
       article.style.height = "320px";
       article.childNodes[1].style.width ="180px";
       article.childNodes[1].style.height ="260px";
+
     });
   });
   articles.forEach ((article) => {
@@ -54,8 +63,8 @@
       article.childNodes[1].classList.add("none");
       article.style.height = "300px";
       article.style.width = "230px";
-      article.childNodes[1].style.width = "220"
-      article.childNodes[1].style.width = "150"
+      article.childNodes[1].style.height = "300"
+      article.childNodes[1].style.width = "230"
     });
   });
 </script>
