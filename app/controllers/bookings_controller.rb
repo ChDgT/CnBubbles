@@ -35,10 +35,8 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params['id'])
     @booking.pending = false
     @booking.save
-
-
-    # @booking.comic.status == "Booked"
-    # @booking.comic.save
+    @booking.comic.status == "Booked"
+    @booking.comic.save
 
 
     authorize @booking
