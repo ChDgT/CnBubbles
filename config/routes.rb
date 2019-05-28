@@ -7,14 +7,12 @@ Rails.application.routes.draw do
     collection do
        get 'available'
      end
-    collection do
-      get 'pending'
-    end
     resources :bookings, only: [:new, :create]
   end
 
   resources :users do
-    resources :bookings, only: [:index, :destroy]
+    resources :bookings, only: [:index, :destroy, :pending, :edit, :update]
+    get 'pendings', to: 'bookings#pending', as: :pending
   end
 
   resources :comics, only: [] do

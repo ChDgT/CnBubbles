@@ -20,15 +20,33 @@ class BookingsController < ApplicationController
     redirect_to comic_path(@comic)
   end
 
+  def pending
+    @bookings = policy_scope(Booking).order(created_at: :desc)
+    @pendings = @bookings.select do |booking|
+      booking.user == current_user && booking.pending
+    end
+    authorize @bookings
+  end
+
+  # def edit
+  # end
+
+  def update
+    @booking = Booking.find(params['id'])
+    @booking.pending = false
+    @booking.save
+    authorize @booking
+  end
+
   def destroy
     @user = current_user
     authorize @booking
     @booking = @user.bookings
   end
 
-private
+  private
 
   def booking_params
-    params.permit(:user_id, :comic_id)
+    params.permit(:user_id, :comic_id, :pending)
   end
 end

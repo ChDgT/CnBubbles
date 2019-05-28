@@ -8,17 +8,17 @@ class ComicsController < ApplicationController
     end
   end
 
-  def pending
-    authorize @comics
-  end
+  # def pending
+  #   authorize @comics
+  # end
 
-  def available
-    @comics = Comic.all
-    @available = @comics.select do |comic|
-      comic.status == "Available"
-    end
-    authorize @comics
-  end
+  # def available
+  #   @comics = Comic.all
+  #   @available = @comics.select do |comic|
+  #     comic.status == "Available"
+  #   end
+  #   authorize @comics
+  # end
 
   def show
     @comic = Comic.find(params[:id])
@@ -61,7 +61,7 @@ class ComicsController < ApplicationController
     @comic = Comic.find(params[:id])
     @comic.user = current_user
     authorize @comic
-    @comic.destroy(comic_params)
+    @comic.destroy
   end
 
   private
