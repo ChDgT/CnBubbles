@@ -14,6 +14,8 @@ class ComicsController < ApplicationController
   def show
     @comic = Comic.find(params[:id])
     authorize @comic
+    @booking = Booking.new
+    authorize @booking
   end
 
   def new
