@@ -16,7 +16,7 @@
     </div>
 
     <% if @comic.available %>
-      <div class='book-button btn btn-primaty'><%= link_to "Book this comic now !", new_comic_booking_path(@comic)%></div>
+      <%= link_to "Book this comic now !", new_comic_booking_path(@comic), class: "book-button"%>
       <% else %>
       <div class="back-booked">
       Already Booked
@@ -27,7 +27,7 @@
 
 
 <div class="comic-option py-3">
-  <%= link_to "Go back to the comics", comics_path, class: "btn btn-primary" %>
+  <%= link_to "Go back to the comics", comics_path, class:"btn btn-outline-dark"%>
   <% if policy(@comic).edit? %>
     <%= link_to "Edit", edit_comic_path(@comic), class: "btn btn-primary"%>
     <% end %>
