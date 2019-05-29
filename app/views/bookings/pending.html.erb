@@ -4,26 +4,9 @@
 <h1>Pending bookings</h1>
 
 
+<ul id="pending-list">
+  <% @pendings.each do |booking| %>
+    <%= render "bookings/pending_list", booking: booking, comic: booking.comic %>
+  <% end %>
+</ul>
 
-<% @pendings.each do |booking| %>
-      <div class="col-4" style="margin-bottom: 20px">
-        <div class="d-flex justify-content-center">
-          <% photo = booking.comic.photo.url.nil? ? image_path("no_photo.jpg") : cl_image_path(booking.comic.photo, height: 260, width: 300, crop: :fill) %>
-              <article id="article" class="text-center">
-              <%= image_tag photo, width: 280,class: "photo-comic" %>
-                <h4> <%= booking.comic.title.capitalize %></h4>
-                <%= "#{booking.comic.price}€" %>
-                <p><%= booking.comic.category.capitalize %> </small></p>
-                <p style="padding-bottom: 50px"> <%= booking.comic.publication_date %></p>
-              <%= simple_form_for [booking], method: :patch, url: user_booking_path(current_user, booking) do |f| %>
-            <%= f.submit "Accept booking", class: "btn btn-visit-index" %>
-            </article>
-          </div>
-        </div>
-<% end %>
-
-
-<% end %>
-</div>
-</div>
-</div>
