@@ -1,11 +1,11 @@
 <body>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "Available", available_comics_path, class: "nav-link-1" %>
-        <%= link_to "Your reservations", user_bookings_path(current_user), class: "nav-link-1" %>
-      </li>
-  </ul>
+
+  <%= link_to "Available", available_comics_path, class: "nav-link-1" %>
+  <% if !current_user.nil? %>
+  <%= link_to "Your reservations", user_bookings_path(current_user), class: "nav-link-1" %>
+  <% end %>
+  <%= link_to "CnBubbles", available_comics_path, class: "logo" %>
 
   <div class="collapse navbar-collapse col-6" id="navbarSupportedContent">
   <div class="logo_postion">

@@ -22,8 +22,6 @@ const initMapbox = () => {
       .setLngLat([ markers.lng, markers.lat ])
       .addTo(map);
       fitMapToMarkers(map, markers);
-
-    fitMapToMarkers(map, markers)
   }
 };
 
