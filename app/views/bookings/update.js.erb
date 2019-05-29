@@ -1,8 +1,8 @@
-console.log('hello')
+console.log(<%= @pendings %>)
 
 function refreshPendings (newList) {
   const list  = document.querySelector("#pending-list");
   list.innerHTML = newList
 }
 
-refreshPendings('<%= j render "bookings/pending_list", booking: @booking, comic: @booking.comic %>');
+refreshPendings('<%= j render "bookings/pending_list", list: @pendings %>');

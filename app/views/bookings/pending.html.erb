@@ -5,8 +5,7 @@
 
 
 <ul id="pending-list">
-  <% @pendings.each do |booking| %>
-    <%= render "bookings/pending_list", booking: booking, comic: booking.comic %>
-  <% end %>
+  <%= render "bookings/pending_list", list: @pendings %>
+
 </ul>
 
