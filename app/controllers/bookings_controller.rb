@@ -32,15 +32,14 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params['id'])
     @booking.pending = false
     @booking.save
+    @pendings = current_user.bookings.select do |booking|
+      booking.pending == true && booking.comic.user != current_user
+    end
     authorize @booking
-      a = current_user.bookings.select do |booking|
-        booking.pending == true && booking.comic.user != current_user
-      end
-      if a.empty?
-        redirect_to comics_path
-      else
-        redirect_to user_pending_path(current_user)
-      end
+    respond_to do |format|
+      format.html { redirect_to user_pending_path(current_user) }
+      format.js
+    end
   end
 
   def destroy
@@ -55,3 +54,9 @@ class BookingsController < ApplicationController
     params.permit(:user_id, :comic_id, :pending)
   end
 end
+
+      # if @pendings.empty?
+      #   redirect_to comics_path
+      # else
+      #   redirect_to user_pending_path(current_user)
+      # end
