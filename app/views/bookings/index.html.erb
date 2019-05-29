@@ -13,7 +13,11 @@
     <div class="card-product-infos">
 
       <% if comic.bookings[0].pending %>
-      <h4 class="text-danger">/!\ Still waiting for owner's acceptation /!\</h4>
+      <h4 class="text-danger">Still waiting for owner's acceptation</h4>
+      <% else %>
+        <h4 class="text-success">
+          Accepted !
+        </h4>
       <% end %>
 
       <h1><%= comic.title.capitalize %></h1>
