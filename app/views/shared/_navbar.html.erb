@@ -1,5 +1,19 @@
 <body>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<<<<<<< HEAD
+  <div class="nav">
+    <%= link_to "Available", available_comics_path, class: "nav-link-1" %>
+    <%= link_to "Your reservations", user_bookings_path(current_user), class: "nav-link-1" %>
+  </div>
+
+  <div class="nav justify-content-center">
+    <%= link_to "CnBubbles", available_comics_path, class: "logo" %>
+  </div>
+
+<!--   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+=======
 
   <%= link_to "Available", available_comics_path, class: "nav-link-1" %>
   <% if !current_user.nil? %>
@@ -13,6 +27,7 @@
   </div>
   </div>
 </div>
+>>>>>>> 5c4dcc74376c3a7aeca88fc74a1b2f1b30a16371
 
 
   <div class="collapse navbar-collapse col-3" id="navbarSupportedContent">
@@ -25,7 +40,7 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link-1" %>
         </li>
       <% end %>
     </ul>

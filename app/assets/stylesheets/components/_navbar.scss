@@ -36,15 +36,14 @@
 }
 
   padding-left: 15px;
-  padding-right: 12px;
+  padding-right: 15px;
   &:hover{
-    border-width: thin;
-    border-bottom: solid;
-    border-color:#c72c41;
-    padding-bottom: 8px;
+    border-bottom: solid 1.3px;
+    border-color: #c72c41;
+    padding-bottom: 12px;
     text-decoration: none;
     color: inherit;
-    color:#c72c41;
+    color: #c72c41;
   }
 }
 
