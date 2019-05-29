@@ -1,4 +1,4 @@
-<%= simple_form_for([ comic, review ]) do |form| %>
+<%= simple_form_for([ comic, review ], remote: true) do |form| %>
   <%= form.input :content, as: :text %>
-  <%= form.button :submit %>
+  <%= form.submit "add a review", class: "btn btn-primary" %>
 <% end %>

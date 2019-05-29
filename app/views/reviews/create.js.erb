@@ -1,0 +1,16 @@
+function refreshForm(new_form) {
+  const newReviewForm = document.getElementById('new_review');
+  newReviewForm.outerHTML = new_form;
+}
+
+function addReview(reviewHTML) {
+  const reviews = document.getElementById('reviews');
+  reviews.insertAdjacentHTML('afterbegin', reviewHTML);
+}
+
+<% if @review.errors.any? %>
+ refreshForm('<%= j render "shared/form", comic: @comic, review: @review %>');
+<% else %>
+  addReview('<%= j render "shared/review_content", review: @review %>');
+  refreshForm('<%= j render "shared/form", comic: @comic, review: Review.new %>');
+<% end %>
