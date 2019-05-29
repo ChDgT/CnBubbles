@@ -1,20 +1,16 @@
 <body>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div style="flex-grow: 30">
+    <%= link_to "CnBubbles", available_comics_path, class: "logo" %>
   <%= link_to "Available", available_comics_path, class: "nav-link-1" %>
   <% if !current_user.nil? %>
   <%= link_to "Your reservations", user_bookings_path(current_user), class: "nav-link-1" %>
   <% end %>
-  <%= link_to "CnBubbles", available_comics_path, class: "logo" %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+</div>
+  <div style="flex-grow: 1" class="collapse navbar-collapse link-to-right" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
+        <li class="nav-item margin-bottom">
           <%= link_to "Pending", user_pending_path(current_user), class: "nav-link-1" %>
           <%= link_to "Add a comic", new_comic_path, class: "nav-link-1" %>
 
@@ -27,6 +23,7 @@
       <% end %>
     </ul>
   </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 </div>
-<script>
-</script>
