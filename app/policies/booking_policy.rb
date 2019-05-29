@@ -4,7 +4,8 @@ class BookingPolicy < ApplicationPolicy
       scope.all
     end
   end
-    def show?
+
+  def show?
     true
   end
 
