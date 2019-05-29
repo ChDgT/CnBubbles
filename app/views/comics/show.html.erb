@@ -30,6 +30,14 @@
           It's booked !
       <% end %>
 
+      <div class="col-6">
+      <%= render 'shared/form', comic: @comic, review: @review %>
+      <div id="reviews">
+        <% @comic.reviews.each do |review| %>
+          <%= render 'shared/review_content', review: review %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 
