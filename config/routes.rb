@@ -21,8 +21,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :comics do
-      resources :reviews, only: [:new, :create]
+  resources :comics, only: [:index, :show] do
+      resources :reviews, only: :create
   end
 
 end

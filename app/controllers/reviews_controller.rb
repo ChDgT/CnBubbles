@@ -1,11 +1,21 @@
 class ReviewsController < ApplicationController
 
-def new
+  def create
+    @comic = Comic.find(params[:comic_id])
+    @review = Review.new(review_params)
+    @review.comic = @comic
+    authorize @review
+    if @review.save
+      redirect_to comic_path(@comic)
+    else
+      render 'comics/show'
+    end
+  end
 
-end
+  private
 
-def create
+  def review_params
+    params.require(:review).permit(:content)
 
-end
-
+  end
 end
