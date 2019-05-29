@@ -1,11 +1,12 @@
 .navbar-lewagon {
-  justify-content: space-between;
+display: flex;
+justify-content:start;
   background: white;
   padding: 0px;
 }
 
 .navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+
 }
 
 .logo {
@@ -47,6 +48,7 @@
 }
 
 .nav-link-1:hover {
+  padding-bottom:8px !important;
 }
 a.nav-link {
   background-color: #801336;
@@ -56,3 +58,4 @@ a.nav-link {
 a.nav-link:hover {
  background-color:#c72c41;
 }
+
