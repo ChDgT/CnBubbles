@@ -1,5 +1,6 @@
 <body>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<<<<<<< HEAD
   <div class="nav">
     <%= link_to "Available", available_comics_path, class: "nav-link-1" %>
     <%= link_to "Your reservations", user_bookings_path(current_user), class: "nav-link-1" %>
@@ -12,15 +13,29 @@
 <!--   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button> -->
+=======
+
+  <%= link_to "Available", available_comics_path, class: "nav-link-1" %>
+  <% if !current_user.nil? %>
+  <%= link_to "Your reservations", user_bookings_path(current_user), class: "nav-link-1" %>
+  <% end %>
+  <%= link_to "CnBubbles", available_comics_path, class: "logo" %>
+
+  <div class="collapse navbar-collapse col-6" id="navbarSupportedContent">
+  <div class="logo_postion">
+    <%= link_to "CnBubbles", available_comics_path, class: "logo" %>
+  </div>
+  </div>
+</div>
+>>>>>>> 5c4dcc74376c3a7aeca88fc74a1b2f1b30a16371
 
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse col-3" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
           <%= link_to "Pending", user_pending_path(current_user), class: "nav-link-1" %>
           <%= link_to "Add a comic", new_comic_path, class: "nav-link-1" %>
-
           <%= link_to "Log out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure ?" }, class: "nav-link-1" %>
         </li>
       <% else %>
@@ -31,6 +46,8 @@
     </ul>
   </div>
 </div>
+
 <script>
 </script>
+
 </body>

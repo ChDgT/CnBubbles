@@ -34,12 +34,12 @@
 </div>
 
 <div class="comic-option py-3">
-<%= link_to "Go back to the comics", comics_path,class: "lien-back"%>
+<%= link_to "Go back to the comics", comics_path,class: "card-action"%>
   <% if policy(@comic).edit? %>
-    <%= link_to "Edit", edit_comic_path(@comic), class: "btn btn-primary"%>
+    <%= link_to "Edit", edit_comic_path(@comic),class: "card-action"%>
     <% end %>
     <% if policy(@comic).destroy? %>
-      <span class="btn btn-danger"><%= link_to "Delete", comic_path(@comic), {method: :delete, data:{ confirm: "Are you sure?"}}%></span>
+      <%= link_to "Delete", comic_path(@comic), {method: :delete, data:{ confirm: "Are you sure?"}}%>
       <% end %>
   </div>
   <div class="row d-flex justify-content-center">
